@@ -16,6 +16,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "preview": "vite preview"
   },
   "eslintConfig": {
@@ -39,6 +41,7 @@
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.3",
     "autoprefixer": "^10.4.20",
+    "gh-pages": "^6.2.0",
     "postcss": "^8.4.47",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
