@@ -63,7 +63,7 @@ const Header = ({ isAuthenticated, handleLogin, handleLogout, openModal }) => {
           {isAuthenticated ? (
             <button
               onClick={handleLogout}
-              className="bg-black text-white font-bold px-4 sm:px-6 py-2 rounded-full text-xs sm:text-md shadow-lg transform transition-transform hover:-translate-y-1 hover:shadow-2xl"
+              className="bg-black text-white font-bold px-4 sm:px-6 py-2 rounded-full text-xs sm:text-base shadow-lg transform transition-transform hover:-translate-y-1 hover:shadow-2xl"
             >
               Logout
             </button>
@@ -96,7 +96,7 @@ const Header = ({ isAuthenticated, handleLogin, handleLogout, openModal }) => {
               >
                 <button
                   onClick={openModal}
-                  className="bg-black text-white font-bold px-4 sm:px-6 py-2 rounded-full text-xs sm:text-md shadow-lg transform transition-transform hover:-translate-y-1 hover:shadow-2xl"
+                  className="bg-black text-white font-bold px-4 sm:px-6 py-2 rounded-full text-xs sm:text-base shadow-lg transform transition-transform hover:-translate-y-1 hover:shadow-2xl"
                 >
                   Login
                 </button>
