@@ -1,65 +1,70 @@
-// src/components/LoginModal.js
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+// src/components/LoginModal.jsx
+import React from "react";
+import { createPortal } from "react-dom";
+import { motion } from "framer-motion";
 
 const LoginModal = ({ handleClose, handleLogin }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const submitLogin = (e) => {
-    e.preventDefault();
-    // Here you would typically verify the user's credentials.
-    handleLogin();
-    handleClose();
+  const handleSubmit = (event) => {
+    event.preventDefault(); // Prevent default form submission
+    handleLogin(event);     // Call handleLogin with form data
   };
 
-  return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-20">
+  return createPortal(
+    // Backdrop
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+      {/* Modal Container */}
       <motion.div
-        className="bg-white rounded-lg p-6 w-full max-w-sm"
-        initial={{ scale: 0.8 }}
-        animate={{ scale: 1 }}
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.3 }}
+        className="bg-white rounded-lg shadow-lg w-11/12 max-w-md p-6 relative"
       >
-        <h2 className="text-2xl font-bold mb-4">Login</h2>
-        <form onSubmit={submitLogin} className="space-y-4">
+        {/* Close Button */}
+        <button
+          onClick={handleClose}
+          className="absolute top-3 right-3 text-gray-500 hover:text-gray-700 text-2xl"
+          aria-label="Close modal"
+        >
+          &times;
+        </button>
+
+        {/* Modal Content */}
+        <h2 className="text-2xl font-bold mb-4">Assessment Portal Login</h2>
+        <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-gray-700">Email</label>
+            <label htmlFor="email" className="block text-gray-700">
+              Email:
+            </label>
             <input
               type="email"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              id="email"
+              name="email"
               required
+              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
             />
           </div>
           <div>
-            <label className="block text-gray-700">Password</label>
+            <label htmlFor="password" className="block text-gray-700">
+              Password:
+            </label>
             <input
               type="password"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              id="password"
+              name="password"
               required
+              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
             />
           </div>
-          <div className="flex justify-end">
-            <button
-              type="button"
-              onClick={handleClose}
-              className="mr-2 px-4 py-2 text-gray-700 hover:text-gray-900"
-            >
-              Cancel
-            </button>
-            <button
-              type="submit"
-              className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-500"
-            >
-              Login
-            </button>
-          </div>
+          <button
+            type="submit"
+            className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition-colors"
+          >
+            Login to the portal
+          </button>
         </form>
       </motion.div>
-    </div>
+    </div>,
+    document.getElementById("modal-root")
   );
 };
 

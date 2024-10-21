@@ -1,4 +1,3 @@
-// src/components/DashboardLayout.js
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 
@@ -11,9 +10,9 @@ const DashboardLayout = () => {
   ];
 
   return (
-    <div className="flex">
+    <div className="flex min-h-screen">
       {/* Sidebar */}
-      <aside className="w-64 bg-gray-800 text-white min-h-screen">
+      <aside className="w-64 bg-gray-800 text-white h-screen">
         <div className="p-6">
           <h2 className="text-2xl font-bold">Student Portal</h2>
           <nav className="mt-8">
@@ -35,7 +34,7 @@ const DashboardLayout = () => {
       </aside>
 
       {/* Main Content */}
-      <div className="flex-grow p-6">
+      <div className="flex-grow p-6 bg-gray-100 min-h-screen">
         <Outlet />
       </div>
     </div>
