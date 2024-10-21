@@ -1,6 +1,6 @@
 // src/pages/Contact.js
-import React from 'react';
-import { FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import React from "react";
+import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 
 const Contact = () => (
   <div className="pt-20 bg-gray-50">
@@ -39,7 +39,7 @@ const Contact = () => (
         <div className="w-full lg:w-1/2 mt-8 lg:mt-0 lg:pl-12">
           <div className="flex items-center text-gray-600 mt-4">
             <FaMapMarkerAlt className="w-6 h-6 mr-2" />
-            <span>Hove Road, Camps Bay, Cape Town</span>
+            <span>Camps Bay, Cape Town</span>
           </div>
           <div className="flex items-center text-gray-600 mt-4">
             <FaPhone className="w-6 h-6 mr-2" />
@@ -47,7 +47,7 @@ const Contact = () => (
           </div>
           <div className="flex items-center text-gray-600 mt-4">
             <FaEnvelope className="w-6 h-6 mr-2" />
-            <span>info@smartmarker.com</span>
+            <span>info@smartmarker.co.za</span>
           </div>
         </div>
       </div>

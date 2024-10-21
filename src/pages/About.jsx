@@ -22,21 +22,8 @@ const About = () => (
       </div>
 
       <div className="mt-8">
-        <h3 className="text-2xl font-bold text-gray-800">The SmartMarker Team</h3>
+        <h3 className="text-2xl font-bold text-gray-800">Meet the Team</h3>
         <div className="mt-4">
-          <h4 className="text-xl font-semibold text-gray-800">Anthony Rogers</h4>
-          <p className="text-gray-600 mt-2">
-            Anthony is a seasoned professional with extensive experience in 
-            finance and technology. He holds a Master’s degree in Financial 
-            and Risk Management and has a passion for teaching and innovation.
-          </p>
-
-          <h4 className="text-xl font-semibold text-gray-800 mt-6">Chris Guattari-Stafford</h4>
-          <p className="text-gray-600 mt-2">
-            Chris, a distinguished graduate and lecturer, combines his expertise 
-            in tax law and education to create effective learning experiences. 
-            His academic excellence and teaching experience shape the SmartMarker platform.
-          </p>
         </div>
       </div>
     </div>
