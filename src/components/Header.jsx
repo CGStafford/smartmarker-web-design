@@ -2,29 +2,27 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import LoginModal from "./LoginModal"; // Ensure this is used or remove if unnecessary
+import LoginModal from "./LoginModal";
 import Logo from "../assets/images/logo.png";
 
 const Header = ({ isAuthenticated, handleLogin, handleLogout, openModal }) => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isLaptopScreen, setIsLaptopScreen] = useState(window.innerWidth >= 1024);
+  const [isLaptopScreen, setIsLaptopScreen] = useState(
+    window.innerWidth >= 1024
+  );
 
   const location = useLocation();
   const isHomePage = location.pathname === "/";
 
-  // Handle screen resize to determine if it's a laptop screen
   useEffect(() => {
     const handleResize = () => setIsLaptopScreen(window.innerWidth >= 1024);
     window.addEventListener("resize", handleResize);
-
-    // Cleanup on unmount
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Scroll event listener to toggle the header background on scroll (only on home page)
   useEffect(() => {
     if (!isHomePage) {
-      setIsScrolled(false); // Ensure header is solid on other pages
+      setIsScrolled(false);
       return;
     }
 
@@ -33,22 +31,26 @@ const Header = ({ isAuthenticated, handleLogin, handleLogout, openModal }) => {
     };
 
     window.addEventListener("scroll", handleScroll);
-
-    // Cleanup on unmount or when isHomePage changes
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isHomePage]);
 
   return (
     <header
       className={`fixed w-full z-20 transition-colors duration-300 ${
-        isHomePage
-          ? isScrolled
-            ? "bg-white backdrop-blur-md shadow-md"
-            : "bg-transparent"
+        isHomePage && !isScrolled
+          ? "bg-transparent"
           : "bg-white backdrop-blur-md shadow-md"
       }`}
+      style={{
+        backgroundColor:
+          isHomePage && !isScrolled
+            ? "transparent"
+            : "rgba(255, 255, 255, 0.2)",
+        top: 0,
+        left: 0,
+      }}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
         {/* Logo and Company Name */}
         <Link
           to={isAuthenticated ? "/dashboard" : "/"}
@@ -56,8 +58,8 @@ const Header = ({ isAuthenticated, handleLogin, handleLogout, openModal }) => {
         >
           <img src={Logo} alt="Company Logo" className="h-8 w-auto mr-2" />
           <span
-            className={`font-bold text-l sm:text-2xl transition-colors duration-300 ${
-              isHomePage && !isScrolled ? "text-black" : "text-black"
+            className={`font-bold text-l sm:text-2xl ${
+              isHomePage && !isScrolled ? "text-white" : "text-black"
             }`}
           >
             SmartMarker
@@ -65,21 +67,16 @@ const Header = ({ isAuthenticated, handleLogin, handleLogout, openModal }) => {
         </Link>
 
         {/* Navigation Links */}
-        <nav className="flex space-x-2 sm:space-x-4 items-center">
-          {isAuthenticated && isLaptopScreen && (
-            <button
-              onClick={handleLogout}
-              className="bg-black text-white font-bold px-4 sm:px-6 py-2 rounded-full text-xs sm:text-base shadow-lg transform transition-transform hover:-translate-y-1 hover:shadow-2xl"
-            >
-              Logout
-            </button>
-          )}
-
+        <nav
+          className="flex-grow flex justify-center space-x-10"
+          style={{ marginLeft: "-50px", marginTop: "3px" }}
+        >
           {!isAuthenticated && (
             <>
               {["Home", "About", "Contact"].map((item, index) => (
                 <motion.div
                   key={item}
+                  className="relative group"
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 * index }}
@@ -87,33 +84,44 @@ const Header = ({ isAuthenticated, handleLogin, handleLogout, openModal }) => {
                   <Link
                     to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
                     className={`font-bold text-xs sm:text-base transition-colors duration-300 ${
-                      isHomePage && !isScrolled
-                        ? "text-black hover:text-gray-300"
-                        : "text-black hover:text-gray-500"
+                      isHomePage && !isScrolled ? "text-white" : "text-black"
                     }`}
                   >
                     {item}
                   </Link>
+                  <div className="absolute left-0 bottom-0 w-full h-0.5 bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
                 </motion.div>
               ))}
-              {/* Login Button with Modal */}
-              {isLaptopScreen && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                >
-                  <button
-                    onClick={openModal}
-                    className="bg-black text-white font-bold px-4 sm:px-6 py-2 rounded-full text-xs sm:text-base shadow-lg transform transition-transform hover:-translate-y-1 hover:shadow-2xl"
-                  >
-                    Login
-                  </button>
-                </motion.div>
-              )}
             </>
           )}
         </nav>
+
+        {/* Right-aligned Buttons */}
+        <div className="ml-auto flex items-center space-x-4">
+          {isAuthenticated && isLaptopScreen && (
+            <button
+              onClick={handleLogout}
+              className="bg-black text-white font-bold px-4 sm:px-6 py-2 rounded-full shadow-lg transition-all duration-300 ease-in-out hover:bg-gray-300 hover:text-black hover:shadow-2xl"
+            >
+              Logout
+            </button>
+          )}
+
+          {!isAuthenticated && isLaptopScreen && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+            >
+              <button
+                onClick={openModal}
+                className="bg-black text-white font-bold px-4 sm:px-6 py-2 rounded-full shadow-lg transform transition-all duration-300 ease-in-out hover:bg-gray-300 hover:text-black hover:shadow-2xl"
+              >
+                Login
+              </button>
+            </motion.div>
+          )}
+        </div>
       </div>
     </header>
   );

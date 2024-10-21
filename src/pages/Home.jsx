@@ -12,12 +12,10 @@ const Home = () => (
     {/* Hero Section with Background Image */}
     <div
       className="relative bg-cover bg-center bg-no-repeat h-screen flex items-center"
-      style={{ backgroundImage: `url(${HeroImage})` }}
+      style={{ backgroundImage: `url(${HeroImage})`, marginTop: -75 }}
     >
-      {/* Overlay */}
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>
 
-      {/* Text Content */}
       <div className="container relative mx-auto px-6 py-12 lg:py-16 flex flex-col items-start lg:w-1/2">
         <motion.h1
           className="text-4xl font-bold text-white md:text-5xl drop-shadow-lg"
@@ -47,7 +45,7 @@ const Home = () => (
           <Link
             smooth
             to="#how-it-works"
-            className="bg-white text-black font-bold px-6 py-3 rounded-full text-lg shadow-lg transform transition-transform hover:-translate-y-1 hover:shadow-2xl"
+            className="bg-white text-black font-bold px-6 py-3 rounded-full shadow-lg transition-all duration-300 ease-in-out hover:bg-black hover:text-white"
           >
             Learn More
           </Link>
