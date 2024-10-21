@@ -50,7 +50,7 @@ const Header = ({ isAuthenticated, handleLogin, handleLogout, openModal }) => {
         >
           <img src={Logo} alt="Company Logo" className="h-8 w-auto mr-2" />
           <span
-            className={`font-bold text-xl sm:text-2xl transition-colors duration-300 ${
+            className={`font-bold text-l sm:text-2xl transition-colors duration-300 ${
               isHomePage && !isScrolled ? "text-black" : "text-black"
             }`}
           >
@@ -63,7 +63,7 @@ const Header = ({ isAuthenticated, handleLogin, handleLogout, openModal }) => {
           {isAuthenticated ? (
             <button
               onClick={handleLogout}
-              className="bg-black text-white font-bold px-4 sm:px-6 py-2 rounded-full text-sm sm:text-md shadow-lg transform transition-transform hover:-translate-y-1 hover:shadow-2xl"
+              className="bg-black text-white font-bold px-4 sm:px-6 py-2 rounded-full text-xs sm:text-md shadow-lg transform transition-transform hover:-translate-y-1 hover:shadow-2xl"
             >
               Logout
             </button>
@@ -78,7 +78,7 @@ const Header = ({ isAuthenticated, handleLogin, handleLogout, openModal }) => {
                 >
                   <Link
                     to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
-                    className={`font-bold text-sm sm:text-base transition-colors duration-300 ${
+                    className={`font-bold text-xs sm:text-base transition-colors duration-300 ${
                       isHomePage && !isScrolled
                         ? "text-black hover:text-gray-300"
                         : "text-black hover:text-gray-500"
@@ -96,7 +96,7 @@ const Header = ({ isAuthenticated, handleLogin, handleLogout, openModal }) => {
               >
                 <button
                   onClick={openModal}
-                  className="bg-black text-white font-bold px-4 sm:px-6 py-2 rounded-full text-sm sm:text-md shadow-lg transform transition-transform hover:-translate-y-1 hover:shadow-2xl"
+                  className="bg-black text-white font-bold px-4 sm:px-6 py-2 rounded-full text-xs sm:text-md shadow-lg transform transition-transform hover:-translate-y-1 hover:shadow-2xl"
                 >
                   Login
                 </button>
