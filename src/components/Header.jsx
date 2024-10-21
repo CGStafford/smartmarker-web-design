@@ -68,8 +68,8 @@ const Header = ({ isAuthenticated, handleLogin, handleLogout, openModal }) => {
 
         {/* Navigation Links */}
         <nav
-          className="flex-grow flex justify-end sm:justify-center space-x-3 sm:space-x-10"
-          style={{ marginLeft: "-50px", marginTop: "0px" }}
+          className="flex-grow flex justify-end sm:justify-center space-x-3 sm:space-x-10 sm:ml-0"
+          style={{ marginLeft: "-50px", marginTop: "-5px" }}
         >
           {!isAuthenticated && (
             <>
