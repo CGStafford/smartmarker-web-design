@@ -20,7 +20,7 @@ const Home = () => (
       {/* Text Content */}
       <div className="container relative mx-auto px-6 py-12 lg:py-16 flex flex-col items-start lg:w-1/2">
         <motion.h1
-          className="text-xl sm:text-2xl md:text-3xl lg:text-7xl font-bold text-white md:text-5xl drop-shadow-lg"
+          className="text-4xl font-bold text-white md:text-5xl drop-shadow-lg"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
