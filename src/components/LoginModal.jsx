@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const LoginModal = ({ handleClose, handleLogin }) => {
   const handleSubmit = (event) => {
     event.preventDefault(); // Prevent default form submission
-    handleLogin(event);     // Call handleLogin with form data
+    handleLogin(event); // Call handleLogin with form data
   };
 
   return createPortal(
@@ -29,7 +29,7 @@ const LoginModal = ({ handleClose, handleLogin }) => {
         </button>
 
         {/* Modal Content */}
-        <h2 className="text-2xl font-bold mb-4">Assessment Portal Login</h2>
+        <h2 className="text-2xl font-bold mb-4">Assessment Portal</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label htmlFor="email" className="block text-gray-700">
@@ -55,12 +55,15 @@ const LoginModal = ({ handleClose, handleLogin }) => {
               className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
             />
           </div>
-          <button
-            type="submit"
-            className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition-colors"
-          >
-            Login to the portal
-          </button>
+          {/* Centered Login Button */}
+          <div className="flex justify-center">
+            <button
+              type="submit"
+              className="bg-black text-white font-bold px-4 sm:px-6 py-2 rounded-full shadow-lg transform transition-all duration-300 ease-in-out hover:bg-gray-300 hover:text-black hover:shadow-2xl"
+            >
+              Login
+            </button>
+          </div>
         </form>
       </motion.div>
     </div>,
