@@ -20,7 +20,7 @@ const Home = () => (
       {/* Text Content */}
       <div className="container relative mx-auto px-6 py-12 lg:py-16 flex flex-col items-start lg:w-1/2">
         <motion.h1
-          className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold text-white md:text-5xl drop-shadow-lg"
+          className="text-xl sm:text-2xl md:text-3xl lg:text-7xl font-bold text-white md:text-5xl drop-shadow-lg"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
@@ -57,7 +57,7 @@ const Home = () => (
 
     {/* How It Works Section */}
     <section id="how-it-works" className="bg-white py-16">
-    <div className="container mx-auto px-6 flex flex-col lg:flex-row items-center lg:space-x-12">
+      <div className="container mx-auto px-6 flex flex-col lg:flex-row items-center lg:space-x-12">
         {/* Video on the Left */}
         <div className="w-full lg:w-1/2">
           <div className="aspect-w-16 aspect-h-9">
