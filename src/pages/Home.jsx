@@ -20,7 +20,7 @@ const Home = () => (
       {/* Text Content */}
       <div className="container relative mx-auto px-6 py-12 lg:py-16 flex flex-col items-start lg:w-1/2">
         <motion.h1
-          className="text-4xl font-bold text-white md:text-5xl drop-shadow-lg"
+          className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold text-white md:text-5xl drop-shadow-lg"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
@@ -28,7 +28,7 @@ const Home = () => (
           Unlock Your Potential: Prepare for Success
         </motion.h1>
         <motion.p
-          className="text-white mt-4 text-lg drop-shadow-md"
+          className="text-white mt-4 text-2xl drop-shadow-md"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
