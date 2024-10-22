@@ -1,9 +1,11 @@
 // src/components/Header.jsx
+
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import LoginModal from "./LoginModal";
 import Logo from "../assets/images/logo.png";
+import FadeButton from "./FadeButton"; // Import the FadeButton
 
 const Header = ({ isAuthenticated, handleLogin, handleLogout, openModal }) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -99,12 +101,9 @@ const Header = ({ isAuthenticated, handleLogin, handleLogout, openModal }) => {
         {/* Right-aligned Buttons */}
         <div className="ml-auto flex items-center space-x-4">
           {isAuthenticated && isLaptopScreen && (
-            <button
-              onClick={handleLogout}
-              className="bg-black text-white font-bold px-4 sm:px-6 py-2 rounded-full shadow-lg transition-all duration-300 ease-in-out hover:bg-gray-300 hover:text-black hover:shadow-2xl"
-            >
+            <FadeButton onClick={handleLogout} ariaLabel="Logout">
               Logout
-            </button>
+            </FadeButton>
           )}
 
           {!isAuthenticated && isLaptopScreen && (
@@ -113,12 +112,9 @@ const Header = ({ isAuthenticated, handleLogin, handleLogout, openModal }) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
             >
-              <button
-                onClick={openModal}
-                className="bg-black text-white font-bold px-4 sm:px-6 py-2 rounded-full shadow-lg transform transition-all duration-300 ease-in-out hover:bg-gray-300 hover:text-black hover:shadow-2xl"
-              >
+              <FadeButton onClick={openModal} ariaLabel="Login">
                 Login
-              </button>
+              </FadeButton>
             </motion.div>
           )}
         </div>
