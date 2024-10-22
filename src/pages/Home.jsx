@@ -46,7 +46,7 @@ const Home = () => (
           transition={{ duration: 0.5, delay: 1 }}
         >
           {/* Replace the original Link with FadeButton */}
-          <FadeButton to="#how-it-works" ariaLabel="Learn More">
+          <FadeButton smooth to="#how-it-works" ariaLabel="Learn More">
             Learn More
           </FadeButton>
         </motion.div>
@@ -122,8 +122,8 @@ const Home = () => (
       </div>
     </section>
 
-       {/* How It Works Section */}
-       <section id="how-it-works" className="bg-gray-100 py-16">
+    {/* How It Works Section */}
+    <section id="how-it-works" className="bg-gray-100 py-16">
       <div className="container mx-auto px-6 flex flex-col lg:flex-row items-center lg:space-x-12">
         {/* Video on the Left */}
         <div className="w-full lg:w-1/2">
@@ -191,8 +191,8 @@ const Home = () => (
       </div>
     </section>
 
-        {/* About Section with Image */}
-        <section className="bg-gray-200 py-16">
+    {/* About Section with Image */}
+    <section className="bg-gray-200 py-16">
       <div className="container mx-auto px-6 flex flex-col lg:flex-row items-center lg:space-x-12">
         <div className="w-full lg:w-1/2">
           <h3 className="text-2xl font-bold text-gray-800">
@@ -216,8 +216,8 @@ const Home = () => (
       </div>
     </section>
 
-        {/* About Section with Image */}
-        <section className="bg-gray-100 py-16">
+    {/* About Section with Image */}
+    <section className="bg-gray-100 py-16">
       <div className="container mx-auto px-6 flex flex-col lg:flex-row items-center lg:space-x-12">
         <div className="w-full lg:w-1/2">
           <h3 className="text-2xl font-bold text-gray-800">
@@ -241,8 +241,8 @@ const Home = () => (
       </div>
     </section>
 
-        {/* About Section with Image */}
-        <section className="bg-gray-200 py-16">
+    {/* About Section with Image */}
+    <section className="bg-gray-200 py-16">
       <div className="container mx-auto px-6 flex flex-col lg:flex-row items-center lg:space-x-12">
         <div className="w-full lg:w-1/2">
           <h3 className="text-2xl font-bold text-gray-800">

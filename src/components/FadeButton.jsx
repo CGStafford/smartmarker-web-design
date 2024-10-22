@@ -10,6 +10,7 @@ const FadeButton = ({
   type = "button",
   ariaLabel,
   to, // Optional prop for Link
+  smooth = true, // Default to true for smooth scrolling
 }) => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -71,7 +72,7 @@ const FadeButton = ({
   );
 
   const hoverStyles = {
-    borderColor: isHovered ? "solid black" : "transparent", // gray-300 on hover, fully transparent otherwise
+    borderColor: isHovered ? "black" : "transparent", // Change as needed
     transition: "border-color 0.3s ease-in-out",
   };
 
@@ -80,6 +81,7 @@ const FadeButton = ({
     return (
       <Link
         to={to}
+        smooth={smooth}
         className={baseClasses}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -113,6 +115,7 @@ FadeButton.propTypes = {
   type: PropTypes.oneOf(["button", "submit", "reset"]),
   ariaLabel: PropTypes.string,
   to: PropTypes.string, // Optional, if provided, renders as Link
+  smooth: PropTypes.bool, // Optional, defaults to true
 };
 
 export default FadeButton;
