@@ -1,4 +1,4 @@
-// src/pages/Help.js
+// src/pages/Help.jsx
 import React from 'react';
 
 const Help = () => (
